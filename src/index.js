@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './style.css';
+import { parseMarkdown } from './parseMarkdown';
 
 class App extends React.Component {
   constructor(props) {
@@ -31,7 +32,7 @@ class App extends React.Component {
           </div>
           <div>
             <h2>Output:</h2>
-            <p>{this.state.markdownInput}</p>
+            <p>{parseMarkdown(this.state.markdownInput)}</p>
           </div>
         </div>
       </div>
