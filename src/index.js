@@ -19,7 +19,7 @@ class App extends React.Component {
     this.setState({ markdownInput: event.target.value });
   }
 
-  async copyToClipboard(event) {
+  async copyToClipboard() {
     let copyText = document.getElementById('markdown-text').innerHTML;
     try {
       await navigator.clipboard.writeText(copyText);
