@@ -30,7 +30,7 @@ class App extends React.Component {
   }
 
   render() {
-    let markdownText = marked(this.state.markdownInput);
+    let markdownText = marked(this.state.markdownInput, { breaks: true });
     let markdownOutput = { __html: `${markdownText}` };
 
     return (
@@ -50,9 +50,7 @@ class App extends React.Component {
           </div>
           <div className="col-md-6">
             <h4>Output</h4>
-            <div id="preview">
-              <p dangerouslySetInnerHTML={markdownOutput}></p>
-            </div>
+            <div id="preview" dangerouslySetInnerHTML={markdownOutput}></div>
             <div id="copy-to-clipboard">
               <button
                 type="button"
