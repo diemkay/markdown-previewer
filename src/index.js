@@ -20,7 +20,8 @@ class App extends React.Component {
   }
 
   async copyToClipboard() {
-    let copyText = document.getElementById('markdown-text').innerHTML;
+    let copyText = marked(this.state.markdownInput);
+
     try {
       await navigator.clipboard.writeText(copyText);
     } catch (error) {
@@ -50,7 +51,7 @@ class App extends React.Component {
           <div className="col-md-6">
             <h4>Output</h4>
             <div id="preview">
-              <p id="markdown-text" dangerouslySetInnerHTML={markdownOutput}></p>
+              <p dangerouslySetInnerHTML={markdownOutput}></p>
             </div>
             <div id="copy-to-clipboard">
               <button
@@ -58,7 +59,7 @@ class App extends React.Component {
                 onClick={this.copyToClipboard}
                 className="btn btn-outline-primary btn-sm"
               >
-                Copy to clipboard
+                Copy HTML to clipboard
               </button>
               <p id="disclaimer">In Chrome and Firefox for now</p>
             </div>
