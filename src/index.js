@@ -24,7 +24,7 @@ class App extends React.Component {
     try {
       await navigator.clipboard.writeText(copyText);
     } catch (error) {
-      console.error(error);
+      console.error('Failed to copy!', error);
     }
   }
 
@@ -52,20 +52,20 @@ class App extends React.Component {
             <div id="preview">
               <p id="markdown-text" dangerouslySetInnerHTML={markdownOutput}></p>
             </div>
-            <button
-              type="button"
-              onClick={this.copyToClipboard}
-              className="btn btn-outline-primary btn-sm"
-            >
-              Copy to clipboard
-            </button>
+            <div id="copy-to-clipboard">
+              <button
+                type="button"
+                onClick={this.copyToClipboard}
+                className="btn btn-outline-primary btn-sm"
+              >
+                Copy to clipboard
+              </button>
+              <p id="disclaimer">In Chrome and Firefox for now</p>
+            </div>
           </div>
         </main>
         <footer>
-          Made by Andreea Năstase in Amsterdam
-          <span role="img" aria-label="Netherlands flag">
-            🇳🇱
-          </span>
+          <a href="https://diemkay.github.io/">Andreea Năstase</a> ・ 2020
         </footer>
       </React.Fragment>
     );

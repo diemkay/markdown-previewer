@@ -43,9 +43,23 @@ body {
   border: 0.05em solid lightgray;
 }
 
+/* Override some bootstrap styles */
+
 .btn {
   margin-top: 10px;
   font-size: 13px;
+}
+
+#copy-to-clipboard {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+}
+
+#disclaimer {
+  color: lightgray;
+  font-size: 12px;
+  margin: 10px;
 }
 
 footer {
